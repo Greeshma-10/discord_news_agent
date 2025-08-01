@@ -128,11 +128,8 @@ def run_agent_job():
 
 
 # --- PART F: The Scheduler ---
+# --- PART F: Main Execution ---
+# In GitHub Actions, the .yml file handles the schedule.
+# So, we just need to call our main job function directly once.
 if __name__ == "__main__":
     run_agent_job()
-    schedule.every().day.at("07:30").do(run_agent_job)
-    print("✅ Agent is now scheduled to run every day at 07:30 AM.")
-    print("Keep this terminal window running. Press Ctrl+C to exit.")
-    while True:
-        schedule.run_pending()
-        time.sleep(60)
